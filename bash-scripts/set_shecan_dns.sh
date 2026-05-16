@@ -28,11 +28,11 @@ else
 fi
 
 # DNS های مورد نظر
-DNS_SERVERS="178.22.122.101 185.51.200.1 127.0.0.1 1.0.0.1 1.1.1.1 8.8.8.8"
+DNS_SERVERS="178.22.122.101 185.51.200.1"
 
 echo ">>> Setting DNS servers for connection: $CONNECTION"
 nmcli connection modify "$CONNECTION" ipv4.dns "$DNS_SERVERS"
-nmcli connection modify "$CONNECTION" ipv4.ignore-auto-dns yes
+nmcli connection modify "$CONNECTION" ipv4.ignore-auto-dns no
 
 echo ">>> Restarting connection..."
 nmcli connection down "$CONNECTION" && nmcli connection up "$CONNECTION"
